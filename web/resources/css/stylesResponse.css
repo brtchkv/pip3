@@ -1,0 +1,257 @@
+button, input:focus {
+    outline: 0;
+}
+
+.background {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #FFB74B, #c34a36, #5566DF);
+    background-size: 400% 400%;
+    overflow: hidden;
+}
+
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+header {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px 10px 10px 21px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.75);
+}
+
+footer {
+    position: absolute;
+    padding: 10px 10px 10px 21px;
+    bottom: 0px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.75);
+}
+
+main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -274px;
+    margin-top: -180px;
+    width: 548px;
+    height: 360px;
+    mix-blend-mode: hard-light;
+    border-radius: 20px;
+    background-color: rgba(205, 205, 205, 0.85);
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+#tableResponse {
+    position: relative;
+    margin-left: 6.4%;
+    margin-top: 3.2%;
+}
+
+
+.etRect {
+    width: 215px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ctRect {
+    width: 215px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#tableParameters {
+    position: relative;
+    width: 215px;
+    height: 136px;
+}
+
+.yRect {
+    position: relative;
+    width: 65px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.xRect {
+    position: relative;
+    width: 65px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.rRect {
+    position: relative;
+    width: 65px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.parameters {
+    align-items: center;
+    align: center;
+    position: absolute;
+    display: flex;
+    margin-top: -70%;
+    margin-left: 35%;
+}
+
+.parametersMain {
+    position: absolute;
+    margin-top: 30%;
+}
+
+.resultRect {
+    position: relative;
+    width: 215px;
+    height: 136px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.close {
+    position: absolute;
+    right: 4%;
+    top: 3%;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.hide {
+    display: none;
+}
+
+#dataTable,
+#tableBody > td {
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 250px;
+    margin: 10% auto auto;
+    width: 452px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(215, 215, 215);
+    background-blend-mode: hard-light;
+}
+
+.historyButton {
+    position: absolute;
+    right: 3.5%;
+    top: 88%;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+}
+
+.historyButton svg:hover {
+    fill-opacity: .9;
+}
+
+.historyButton svg {
+    width: 30px;
+    height: 30px;
+    fill-opacity: 0.35;
+}
+
+
+
+
