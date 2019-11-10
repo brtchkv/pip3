@@ -11,16 +11,15 @@
           content="#{facesContext.externalContext.sessionMaxInactiveInterval};url=#{request.contextPath}/views/index.xhtml"/>
     <h:outputStylesheet name="stylesChoose.css" library="css"/>
     <h:outputScript name="interactive.js" library="js"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet" type="text/css"/>
 </h:head>
 <h:body>
         <div class="background">
-            <div id="main" class="mainRect animated zoomIn fast">
+            <div id="main" class="mainRect">
                 <a href="index.xhtml" class="close" onclick="smoothOut()"></a>
                 <h:form id="form">
                     <p:remoteCommand name="formSubmit" update="dataTable form" action="#{results.addResult}"
-                                     oncomplete="updateView();" onerror="document.location.reload(true);"/>
+                                     oncomplete="" onerror="document.location.reload(true);"/>
                     <div class="inputFields" id="fields">
                         <div class="task taskRect">
                             <div class="headerText">
@@ -32,13 +31,15 @@
                                 X
                             </span>
                             <div class="knob-container ui-corner-all" style="text-align: center; margin-top: 15%;">
-                                <p:knob height="90" width="90" max="2" step="1" min="-2" name="x"
+                                <p:knob height="90" width="90" max="2" step="1" min="-2" name="x" value="0"
                                         foregroundColor="#505050" backgroundColor="#a9a9a9" required="true"
-                                        requiredMessage="Неверное значение X." validator="xCheck" cursor="true" id="x">
+                                        requiredMessage="Неверное значение X." cursor="true" id="x" onchange="uglyFix()">
                                 </p:knob>
-                                <p:inputText id="xFromGraph" autocomplete="off" autofocus = "true"
-                                             validator="xCheck" requiredMessage="Неверное значение X."
-                                             class="input" maxlength="8" name="xFromGraph" type="hidden"/>
+                                <p:inputText id="xGraph"
+                                             requiredMessage="Неверное значение Y."
+                                             validator="YValidator"
+                                             styleClass="input" maxlength="8" name="xGraph"
+                                             type = "hidden"/>
                             </div>
                         </div>
                         <div class="rRect" id="rField">
@@ -48,7 +49,7 @@
                             <div class="cntr">
                                 <h:panelGrid style="text-align: center; margin-top: 32px" cellpadding="5">
                                 <p:selectOneRadio id="r" name="r" value="1" unselectable="true" layout="grid"
-                                                  columns="2" style="font-size: 14px; margin-left: 3px"
+                                                  columns="2" style="font-size: 14px; margin-left: 38px"
                                                   requiredMessage="Неверное значение R." required="true" onchange="drawFigure(this.value);" >
                                     <f:selectItem itemLabel="1" itemValue="1" />
                                     <f:selectItem itemLabel="1.5" itemValue="1.5" />
@@ -65,33 +66,34 @@
                              Y
                         </span>
 
-                        <p:inputText id="y" autocomplete="off" autofocus = "true" required="true"
+                        <p:inputText id="y" required="true"
                                      requiredMessage="Неверное значение Y."
-                                     validator="yCheck"
-                                     class="input" maxlength="8" name="y"
+                                     validator="YValidator"
+                                     styleClass="input" maxlength="8" name="y"
                                      a:placeholder="Введите число от -5 до 5" style="border: none;"
-                                     title="Введите число" />
+                                     title="Введите число" autocomplete="off"/>
                     </div>
                         <div class="imageRect">
                         <div class="imageRect image">
-                            <canvas class="canvas" height="181" width="181" id="canvas" style="position:absolute; text-align: center;"  onclick="getClick(event)"/>
+                            <canvas class="canvas" height="280" width="280" id="canvas" style="position:absolute; text-align: center;"  onclick="getClick(event)"/>
                             </div>
                                 <svg fill="none" height="181" viewBox="0 0 181 181" width="181" xmlns="http://www.w3.org/2000/svg">
                             </svg>
                     </div>
                     </div>
-                    <h:commandButton type="submit" styleClass="buttonCheck"
-                                 value="Отправить" update="dataTable form" action="#{results.addResult}"
-                                     oncomplete="updateView();" onerror="document.location.reload(true);"
-                                     style="margin-left: 99%"/>
+                    <h:commandButton type="submit" styleClass="buttonCheck" value="Отправить" update="dataTable form" action="#{results.addResult}"
+                                     oncomplete="handleKnob()" onerror="document.location.reload(true);"
+                                     style="margin-left: 84%" id="checkButton" name="checkButton"/>
                 </h:form>
             </div>
-            <p:dataTable var="attempts" rows="5"
-                         styleClass="hide"  rules="all" id="dataTable" paginator="true"
-                         paginatorTemplate="  {PreviousPageLink}
-                                 {NextPageLink} "
-                         rowsPerPageTemplate="5" scrollable="true"
-                         scrollWidth="auto" emptyMessage="Данных нет" dir="rtl" pageLinks="5"
+            <h:message for="r" style="color:red"/>
+            <h:message for="x" style="color:red"/>
+            <h:message for="y" style="color:red"/>
+            <p:dataTable var="attempts"
+                         styleClass="hide" id="dataTable"
+                         scrollable="true"
+                         scrollHeight="360"
+                         emptyMessage="Данных нет"
                          style="text-align: center; width: 80%; height: 80%; margin-left: 9.5%; margin-top: 5%;"
                          tableStyle="text-align: center" value="#{results.allResults}">
                 <p:column headerText="X">

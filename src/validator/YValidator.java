@@ -8,7 +8,7 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import java.util.logging.Logger;
 
-@FacesValidator("yCheck")
+@FacesValidator("YValidator")
 public class YValidator implements Validator {
     private static final double minY = -5;
     private static final double maxY = 5;
@@ -19,9 +19,6 @@ public class YValidator implements Validator {
             if (!(y >= minY && y <= maxY))
                 throw new IllegalArgumentException();
         } catch (Exception e) {
-            Logger logger;
-            logger = Logger.getLogger("logger");
-            logger.info("123");
             FacesMessage msg =
                     new FacesMessage("Y validation failed.",
                             "Неверная координата Y.");

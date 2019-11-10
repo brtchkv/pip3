@@ -7,7 +7,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("xCheck")
+@FacesValidator("XValidator")
 public class XValidator implements Validator {
     private static final double[] possibleX = {-2, -1, 0, 1, 2};
 

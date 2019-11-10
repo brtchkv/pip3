@@ -40,13 +40,11 @@ public class Results {
         } catch (Exception e) {
             logger.info(e.getMessage());
         }
-        logger.info("2");
     }
 
     public int addResult() {
-        logger.info("3");
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        String xstr = requestParameterMap.get("form:xFromGraph");
+        String xstr = requestParameterMap.get("form:xGraph");
         String ystr = requestParameterMap.get("form:y");
         String rstr = requestParameterMap.get("form:r");
         logger.info("X = " + xstr);
@@ -60,22 +58,24 @@ public class Results {
             y = Double.parseDouble(ystr.replace(',', '.'));
             r = Double.parseDouble(rstr.replace(',', '.'));
         } catch (Exception e) {
+            logger.info("-1");
             return -1;
         }
+        logger.info(String.valueOf(MatchingManager.valid(x, y, r)));
         if (!MatchingManager.valid(x, y, r))
             return -1;
         boolean check = MatchingManager.match(x, y, r);
 
         logger.info("try");
         try {
-            String sql = "INSERT INTO ? (id ,x, y, r , match) VALUES (?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO results (x, y, r , match) VALUES (?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, TABLE_NAME);
-            preparedStatement.setString(2, sessionID);
-            preparedStatement.setDouble(3, x);
-            preparedStatement.setDouble(4, y);
-            preparedStatement.setDouble(5, r);
-            preparedStatement.setBoolean(6, check);
+//            preparedStatement.setString(1, TABLE_NAME);
+//            preparedStatement.setString(1, sessionID);
+            preparedStatement.setDouble(1, x);
+            preparedStatement.setDouble(2, y);
+            preparedStatement.setDouble(3, r);
+            preparedStatement.setBoolean(4, check);
 
             int rows = preparedStatement.executeUpdate();
             return rows;
@@ -87,11 +87,9 @@ public class Results {
     }
 
     public Vector<ResultRow> getAllResults() {
-        logger.info("asd");
         Vector<ResultRow> resultRows = new Vector<>();
         try {
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM " + TABLE_NAME +
-                    " WHERE id = '" + sessionID + "';");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM " + TABLE_NAME + ";");
             while (resultSet.next()) {
                 ResultRow resultRow = new ResultRow();
                 resultRow.setX(resultSet.getString("x"));

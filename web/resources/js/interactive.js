@@ -1,11 +1,16 @@
-const width = 181;
-const height = 181;
+const width = 280;
+const height = 280;
 const extraValue = 0;
 const trueR = 45;
 
 $(() => {
-    drawFigure(trueR);
+    drawFigure(getR());
 });
+
+function uglyFix() {
+    let knobX = $('input[name$="x"]').val().replace(",", ".");
+    $("input[name*='xGraph']").val(knobX);
+}
 
 function updateView() {
     drawFigure(getR());
@@ -20,7 +25,6 @@ function getR() {
 }
 
 function getClick(event) {
-
         let width = $('#canvas').width();
         let height = $('#canvas').height();
 
@@ -30,15 +34,19 @@ function getClick(event) {
 
         let x = (event.clientX - rect.left - width / 2) / getR() * r;
         let y = (height / 2 - (event.clientY - rect.top)) / getR() * r;
-        // x = (Math.round(x*2)*1.)/2;
-
-        $("input[name*='xFromGraph']").val(x.toFixed(2));
+        // $("input[name*='x']").val(x.toFixed(2)).trigger("click");
+        $("input[name*='xGraph']").val(x.toFixed(2));
         $("input[name$='y']").val(y.toFixed(2));
-        // $('#form').submit();
+
+        // var form = document.getElementById("form");
+        // form.submit();
+}
+
+function handleKnob(){
+
 }
 
 $(document).ready(function () {
-
     // let canvas = $('#canvas');
     // let ctx = canvas[0].getContext('2d');
     // let rxp = /{([^}]+)}/g,

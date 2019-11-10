@@ -80,8 +80,8 @@ body .ui-radiobutton .ui-icon-blank {
 .inputFields {
     position: relative;
     padding: 40px 80px 30px 80px;
-    height: 329px;
-    width: 389px;
+    height: 385px;
+    width: 695px;
     color: rgba(0, 0, 0, 0.75);
 }
 
@@ -100,7 +100,7 @@ body .ui-radiobutton .ui-icon-blank {
 .task {
     padding: 14px 20px;
     position: absolute;
-    width: 406px;
+    width: 550px;
     height: 40px;
     font-family: Roboto sans-serif;
     font-size: 17px;
@@ -116,9 +116,9 @@ body .ui-radiobutton .ui-icon-blank {
 /* Rectangle 4 */
 .xRect {
     position: absolute;
-    width: 260px;
-    height: 150px;
-    margin-top: 17.5%;
+    width: 280px;
+    height: 170px;
+    margin-top: 15.5%;
     /*mix-blend-mode: soft-light;*/
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.4);
@@ -129,7 +129,7 @@ body .ui-radiobutton .ui-icon-blank {
 .xLetter {
     position: absolute;
     padding: 14px 20px;
-    margin-left: 105px;
+    margin-left: 115px;
     font-family: Roboto Serif;
     font-style: normal;
     font-weight: normal;
@@ -180,10 +180,10 @@ body .ui-radiobutton .ui-icon-blank {
 /* Rectangle 3 */
 .rRect {
     position: absolute;
-    margin-top: 17.5%;
-    margin-left: 56.5%;
-    width: 135px;
-    height: 150px;
+    margin-top: 15.5%;
+    margin-left: 45.7%;
+    width: 200px;
+    height: 170px;
     /*mix-blend-mode: soft-light;*/
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.4);
@@ -194,8 +194,8 @@ body .ui-radiobutton .ui-icon-blank {
 /* R: */
 .rParameter {
     position: absolute;
-    width: 110px;
-    height: 20px;
+    width: 178px;
+    height: 15px;
     padding: 14px 12px;
     font-family: Roboto Serif;
     font-style: normal;
@@ -208,9 +208,9 @@ body .ui-radiobutton .ui-icon-blank {
 /* Rectangle 5 */
 .yRect {
     position: absolute;
-    width: 445px;
-    height: 60px;
-    margin-top: 50%;
+    width: 590px;
+    height: 70px;
+    margin-top: 42%;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
 }
@@ -218,8 +218,8 @@ body .ui-radiobutton .ui-icon-blank {
 /* Y: */
 .yLetter {
     position: absolute;
-    padding-top: 5%;
-    padding-left: 5.5%;
+    padding-top: 4.5%;
+    padding-left: 6%;
 
     font-family: Roboto Serif;
     font-style: normal;
@@ -236,7 +236,7 @@ body .ui-radiobutton .ui-icon-blank {
     width: 80%;
     height: 40%;
     left: 13%;
-    top: 21%;
+    top: 22%;
     /*mix-blend-mode: luminosity;*/
     vertical-align: middle;
     text-align: center;
@@ -254,9 +254,9 @@ input[type="text"]::placeholder {
 .imageRect {
 
     position: absolute;
-    width: 220px;
-    height: 220px;
-    margin-left: 95%;
+    width: 300px;
+    height: 300px;
+    margin-left: 76%;
     padding: 10px 10px 10px 10px;
     background-color: rgba(255, 255, 255, 0.4);
 
@@ -267,8 +267,8 @@ input[type="text"]::placeholder {
 /* image 2 */
 .image {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     margin-left: 0;
     border-radius: 36px;
     background-color: rgba(255, 255, 255, 1);
@@ -283,7 +283,7 @@ input[type="text"]::placeholder {
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 15px;
     text-align: center;
-    bottom: 9%;
+    bottom: 0;
     font-family: Roboto Serif;
     font-style: normal;
     font-weight: 500;

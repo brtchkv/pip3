@@ -7,7 +7,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("rCheck")
+@FacesValidator("RValidator")
 public class RValidator implements Validator {
     private static final double[] possibleR = {1.5, 1, 2, 2.5, 3, 3.5};
 

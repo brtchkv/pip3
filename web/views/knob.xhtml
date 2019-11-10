@@ -8,35 +8,34 @@
       xmlns:a="http://java.sun.com/jsf/composite">
 <h:head>
     <title>Knobs</title>
+    <h:outputStylesheet name="stylesChoose.css" library="css"/>
 <!--    <h:outputStylesheet name="stylesChoose.css" library="css"/>-->
 </h:head>
 <h:body>
     <h:form>
-        <div class="">
+        <div class="background">
             <div class="mainRect">
-                <p:dataTable var="car" value="#{dtPaginatorView.cars}" rows="5"
-                             paginator="true"
-                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
-                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                             rowsPerPageTemplate="5,10,15" scrollable="true" scrollHeight="325px"
-                             scrollWidth="auto" emptyMessage="Данных нет" dir="rtl" pageLinks="5"
-                             stickyHeader="true" style="text-align: center" tableStyle="text-align: center">
-                    <p:column headerText="Id">
-                        <h:outputText value="#{car.id}" />
+                <p:dataTable var="attempts"
+                             styleClass="" id="dataTable"
+                             scrollable="true" scrollHeight="150"
+                             emptyMessage="Данных нет"
+                             style="text-align: center; width: 80%; height: 80%; margin-left: 9.5%; margin-top: 4%;"
+                             tableStyle="text-align: center" value="#{results.allResults}">
+                    <p:column headerText="X">
+                        <h:outputText value="#{attempts.x}" />
                     </p:column>
 
-                    <p:column headerText="Year">
-                        <h:outputText value="#{car.year}" />
+                    <p:column headerText="Y">
+                        <h:outputText value="#{attempts.y}" />
                     </p:column>
 
-                    <p:column headerText="Brand">
-                        <h:outputText value="#{car.brand}" />
+                    <p:column headerText="R">
+                        <h:outputText value="#{attempts.r}" />
                     </p:column>
 
-                    <p:column headerText="Color">
-                        <h:outputText value="#{car.color}" />
+                    <p:column headerText="Match">
+                        <h:outputText value="#{attempts.match}" />
                     </p:column>
-
 
                 </p:dataTable>
                 </div>
