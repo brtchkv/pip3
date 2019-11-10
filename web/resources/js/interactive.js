@@ -96,18 +96,19 @@ function drawFigure(r){
                 values[i * 4].innerText,
                 values[i * 4 + 1].innerText,
                 values[i * 4 + 2].innerText,
-                values[i * 4 + 3].innerHTML.includes("yes"));
+                values[i * 4 + 3].innerHTML.includes("yes"), r);
         }
 }
 
-function drawPoint(ctx, x, y, r, match) {
+function drawPoint(ctx, x, y, r, match, rCurrent) {
     if (match)
         ctx.fillStyle = "#FFFFFF";
     else
         ctx.fillStyle = "#3E97FF";
 
-    let pointX = (x * getR() / r + width / 2);
-    let pointY = -y * getR() / r + height / 2;
+    let pointX = (x * rCurrent / r + width / 2);
+    let pointY = (-y * rCurrent / r + height / 2);
+    console.log(pointX, pointY, rCurrent);
     if (pointX > width || pointY > height)
         return false;
     else {
