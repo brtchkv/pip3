@@ -12,10 +12,6 @@ function uglyFix() {
     $("input[name*='xGraph']").val(knobX);
 }
 
-function updateView() {
-    drawFigure(getR());
-}
-
 function getR() {
     let result = $('input[name$="r"]').val().replace(",", ".") * trueR;
     if (isNaN(result) || result < trueR || result > trueR * 3)
@@ -37,42 +33,15 @@ function getClick(event) {
         // $("input[name*='x']").val(x.toFixed(2)).trigger("click");
         $("input[name*='xGraph']").val(x.toFixed(2));
         $("input[name$='y']").val(y.toFixed(2));
-
-        // var form = document.getElementById("form");
-        // form.submit();
 }
 
 function handleKnob(){
 
 }
 
-$(document).ready(function () {
-    // let canvas = $('#canvas');
-    // let ctx = canvas[0].getContext('2d');
-    // let rxp = /{([^}]+)}/g,
-    //     curMatch;
-    // let width = canvas.width();
-    // let height = canvas.height();
-    //
-    // if ($("#canvas").attr('history')) {
-    //     userAttempts = $("#canvas").attr('history');
-    //     console.log(userAttempts);
-    //     while (curMatch = rxp.exec(userAttempts)) {
-    //         console.log(curMatch[1].replace(
-    //             /'/g, "\""));
-    //         obj = JSON.parse("{" + curMatch[1].replace(
-    //             /'/g, "\"") + "}");
-    //         let x = (width * (2 * obj.x + 3 * obj.r)) / (6 * obj.r);
-    //         let y = (height * (3 * obj.r - 2 * obj.y)) / (6 * obj.r);
-    //
-    //         drawCircle(x, y, obj.correct);
-    //     }
-    // }
-
-});
-
-
-function drawCircle(x, y, result) {
+function drawCircle(ctx, x, y, result, color) {
+    if (color)
+        ctx.fillStyle = color;
     if (result === 'true')
         ctx.fillStyle = 'rgb(255, 255, 255)';
     else
@@ -118,8 +87,38 @@ function drawFigure(r){
     ctx.fill();
     ctx.closePath();
 
-    drawPlane(r)
+    drawPlane(r);
+
+    let values = $("#dataTable td").toArray();
+    if (values.length > 3)
+        for (let i = 0; i < values.length / 4; ++i) {
+            drawPoint(ctx,
+                values[i * 4].innerText,
+                values[i * 4 + 1].innerText,
+                values[i * 4 + 2].innerText,
+                values[i * 4 + 3].innerHTML.includes("yes"));
+        }
 }
+
+function drawPoint(ctx, x, y, r, match) {
+    if (match)
+        ctx.fillStyle = "#FFFFFF";
+    else
+        ctx.fillStyle = "#3E97FF";
+
+    let pointX = (x * getR() / r + width / 2);
+    let pointY = -y * getR() / r + height / 2;
+    if (pointX > width || pointY > height)
+        return false;
+    else {
+        ctx.beginPath();
+        ctx.arc(pointX, pointY, 2.5, 0, Math.PI * 2, false);
+        ctx.stroke();
+        ctx.fill();
+    }
+    return true;
+}
+
 
 function drawPlane(r) {
 

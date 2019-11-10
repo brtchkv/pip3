@@ -15,6 +15,8 @@
 </h:head>
 <h:body>
         <div class="background">
+
+
             <div id="main" class="mainRect">
                 <a href="index.xhtml" class="close" onclick="smoothOut()"></a>
                 <h:form id="form">
@@ -72,6 +74,7 @@
                                      styleClass="input" maxlength="8" name="y"
                                      a:placeholder="Введите число от -5 до 5" style="border: none;"
                                      title="Введите число" autocomplete="off"/>
+                            <h:message for="y" style="color:red"/>
                     </div>
                         <div class="imageRect">
                         <div class="imageRect image">
@@ -86,9 +89,6 @@
                                      style="margin-left: 84%" id="checkButton" name="checkButton"/>
                 </h:form>
             </div>
-            <h:message for="r" style="color:red"/>
-            <h:message for="x" style="color:red"/>
-            <h:message for="y" style="color:red"/>
             <p:dataTable var="attempts"
                          styleClass="hide" id="dataTable"
                          scrollable="true"
@@ -108,8 +108,13 @@
                     <h:outputText value="#{attempts.r}" />
                 </p:column>
 
-                <p:column headerText="Match">
-                    <h:outputText value="#{attempts.match}" />
+                <p:column headerText="Попал">
+                    <h:panelGroup rendered="#{attempts.match}">
+                        <span id="yes">да</span>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{!attempts.match}">
+                        <span id="no">нет</span>
+                    </h:panelGroup>
                 </p:column>
 
             </p:dataTable>

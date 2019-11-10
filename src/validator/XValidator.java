@@ -1,5 +1,7 @@
 package validator;
 
+import com.sun.corba.se.spi.ior.ObjectKey;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -9,13 +11,16 @@ import javax.faces.validator.ValidatorException;
 
 @FacesValidator("XValidator")
 public class XValidator implements Validator {
-    private static final double[] possibleX = {-2, -1, 0, 1, 2};
+    private static final double minX = -2;
+    private static final double maxX = 2;
 
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object o) throws ValidatorException {
         try {
+
             double x = Double.parseDouble(o.toString().replace(',', '.'));
-            if (!matchX(x))
+            if (!(x >= minX && x <= maxX))
                 throw new IllegalArgumentException();
+
         } catch (Exception e) {
             FacesMessage msg =
                     new FacesMessage("X validation failed.",
@@ -25,10 +30,4 @@ public class XValidator implements Validator {
         }
     }
 
-    private static boolean matchX(double x) {
-        for (double aPossibleX : possibleX)
-            if (x == aPossibleX)
-                return true;
-        return false;
-    }
 }

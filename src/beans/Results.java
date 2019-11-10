@@ -62,8 +62,8 @@ public class Results {
             return -1;
         }
         logger.info(String.valueOf(MatchingManager.valid(x, y, r)));
-        if (!MatchingManager.valid(x, y, r))
-            return -1;
+//        if (!MatchingManager.valid(x, y, r))
+//            return -1;
         boolean check = MatchingManager.match(x, y, r);
 
         logger.info("try");
