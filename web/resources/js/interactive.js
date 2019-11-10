@@ -90,7 +90,7 @@ function drawFigure(r){
     drawPlane(r);
 
     let values = $("#dataTable td").toArray();
-    if (values.length > 3)
+    if (values.length >= 3) {
         for (let i = 0; i < values.length / 4; ++i) {
             drawPoint(ctx,
                 values[i * 4].innerText,
@@ -98,6 +98,7 @@ function drawFigure(r){
                 values[i * 4 + 2].innerText,
                 values[i * 4 + 3].innerHTML.includes("yes"), r);
         }
+    }
 }
 
 function drawPoint(ctx, x, y, r, match, rCurrent) {
@@ -106,12 +107,17 @@ function drawPoint(ctx, x, y, r, match, rCurrent) {
     else
         ctx.fillStyle = "#3E97FF";
 
-    let pointX = (x * rCurrent / r + width / 2);
-    let pointY = (-y * rCurrent / r + height / 2);
-    console.log(pointX, pointY, rCurrent);
-    if (pointX > width || pointY > height)
+    x = x.replace(",", ".");
+    y = y.replace(",", ".");
+    r = r.replace(",", ".");
+
+    let pointX = x * rCurrent / r + width / 2;
+    let pointY = -y * rCurrent / r + height / 2;
+
+    if (pointX > width || pointY > height) {
+        console.log("out");
         return false;
-    else {
+    } else {
         ctx.beginPath();
         ctx.arc(pointX, pointY, 2.5, 0, Math.PI * 2, false);
         ctx.stroke();

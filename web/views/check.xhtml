@@ -17,7 +17,10 @@
         <div class="background">
 
             <div id="main" class="mainRect">
-                <a href="index.xhtml" class="close" onclick="smoothOut()"></a>
+                <h:form>
+                    <h:commandButton action="index?faces-redirect=true" value="X"
+                                     styleClass="close" ajax="false" onclick="smoothOut()"/>
+                </h:form>
                 <h:form id="form">
                     <p:remoteCommand name="formSubmit" update="dataTable form" action="#{results.addResult}"
                                      oncomplete="" onerror="document.location.reload(true);"/>
@@ -70,7 +73,7 @@
                         <p:inputText id="y" required="true"
                                      requiredMessage="Неверное значение Y."
                                      validator="YValidator"
-                                     styleClass="input" maxlength="8" name="y"
+                                     styleClass="input" maxlength="5" name="y"
                                      a:placeholder="Введите число от -5 до 5" style="border: none;"
                                      title="Введите число" autocomplete="off"/>
                     </div>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Vector;
 import java.util.logging.FileHandler;
@@ -19,12 +20,12 @@ import java.util.logging.Logger;
 @ApplicationScoped
 public class Results {
     private final Connection connection;
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String USER = "ivan";
-    private static final String PASS = "ivan";
-//    private static final String DB_URL = "jdbc:postgresql://pg:5432/studs";
-//    private static final String USER = "";
-//    private static final String PASS = "";
+//    private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
+//    private static final String USER = "ivan";
+//    private static final String PASS = "ivan";
+    private static final String DB_URL = "jdbc:postgresql://pg:5432/studs";
+    private static final String USER = "s263916";
+    private static final String PASS = "";
     private static final String TABLE_NAME = "results";
     private final String sessionID;
     private final Logger logger;
@@ -92,8 +93,13 @@ public class Results {
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM " + TABLE_NAME + ";");
             while (resultSet.next()) {
                 ResultRow resultRow = new ResultRow();
-                resultRow.setX(resultSet.getString("x"));
-                resultRow.setY(resultSet.getString("y"));
+                Double x = Double.parseDouble(resultSet.getString("x"));
+                Double y = Double.parseDouble(resultSet.getString("y"));
+
+                DecimalFormat df = new DecimalFormat("####0.00");
+
+                resultRow.setX(df.format(x));
+                resultRow.setY(df.format(y));
                 resultRow.setR(resultSet.getString("r"));
                 resultRow.setMatch(resultSet.getString("match").contains("t"));
                 resultRows.add(resultRow);
@@ -108,8 +114,7 @@ public class Results {
     @PreDestroy
     private void clearResults() {
         try {
-            connection.createStatement().executeUpdate("DELETE FROM " + TABLE_NAME +
-                    " WHERE sessionID = '" + sessionID + "';");
+            connection.createStatement().executeUpdate("DELETE FROM " + TABLE_NAME + ";");
         } catch (Exception e) {
             e.printStackTrace();
         }
