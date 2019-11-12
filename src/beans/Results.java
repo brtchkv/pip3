@@ -30,11 +30,6 @@ public class Results {
     {
         connection = new JDBCManager(DB_URL, USER, PASS, true).getConnection();
         logger = Logger.getLogger("logger");
-        try {
-            logger.addHandler(new FileHandler("log.txt"));
-        } catch (Exception e) {
-            logger.info(e.getMessage());
-        }
     }
 
     public int addResult() {
@@ -57,16 +52,12 @@ public class Results {
             return -1;
         }
         logger.info(String.valueOf(MatchingManager.valid(x, y, r)));
-//        if (!MatchingManager.valid(x, y, r))
-//            return -1;
         boolean check = MatchingManager.match(x, y, r);
 
         logger.info("try");
         try {
             String sql = "INSERT INTO results (x, y, r , match) VALUES (?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setString(1, TABLE_NAME);
-//            preparedStatement.setString(1, sessionID);
             preparedStatement.setDouble(1, x);
             preparedStatement.setDouble(2, y);
             preparedStatement.setDouble(3, r);
