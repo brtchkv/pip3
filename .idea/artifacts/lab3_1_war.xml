@@ -6,6 +6,12 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       </element>
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="javax.faces-2.4.0" />
+          <element id="library" level="application" name="primefaces-6.1" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

@@ -23,5 +23,8 @@
     <orderEntry type="library" exported="" name="PrimeFaces-6.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 3.1.2.1-SNAPSHOT" level="application_server_libraries" />
     <orderEntry type="library" name="postgresql-42.2.5" level="project" />
+    <orderEntry type="library" name="javax.faces-2.4.0" level="application" />
+    <orderEntry type="library" name="primefaces-6.1-sources" level="application" />
+    <orderEntry type="library" name="primefaces-6.1" level="application" />
   </component>
 </module>

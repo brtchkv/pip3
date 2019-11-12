@@ -11,6 +11,8 @@
           <element id="library" level="project" name="Mojarra-2.4.0" />
           <element id="library" level="project" name="PrimeFaces-6.1" />
           <element id="library" level="project" name="postgresql-42.2.5" />
+          <element id="library" level="application" name="javax.faces-2.4.0" />
+          <element id="library" level="application" name="primefaces-6.1" />
         </element>
       </element>
     </root>
