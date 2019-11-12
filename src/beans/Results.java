@@ -2,11 +2,9 @@ package beans;
 
 import database.JDBCManager;
 
-import javax.annotation.PreDestroy;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,14 +25,10 @@ public class Results {
     private static final String USER = "s263916";
     private static final String PASS = "";
     private static final String TABLE_NAME = "results";
-    private final String sessionID;
     private final Logger logger;
 
     {
         connection = new JDBCManager(DB_URL, USER, PASS, true).getConnection();
-        FacesContext fCtx = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession) fCtx.getExternalContext().getSession(false);
-        sessionID = session.getId();
         logger = Logger.getLogger("logger");
         try {
             logger.addHandler(new FileHandler("log.txt"));
@@ -109,14 +103,5 @@ public class Results {
             exception.printStackTrace();
         }
         return resultRows;
-    }
-
-    @PreDestroy
-    private void clearResults() {
-        try {
-            connection.createStatement().executeUpdate("DELETE FROM " + TABLE_NAME + ";");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -16,7 +16,7 @@
 <h:body>
         <div class="background">
 
-            <div id="main" class="mainRect">
+            <div id="main" class="mainRect animated zoomIn fast">
                 <h:form>
                     <h:commandButton action="index?faces-redirect=true" value="X"
                                      styleClass="close" ajax="false" onclick="smoothOut()"/>
@@ -37,11 +37,11 @@
                             <div class="knob-container ui-corner-all" style="text-align: center; margin-top: 15%;">
                                 <p:knob height="90" width="90" max="2" step="1" min="-2" name="x" value="0"
                                         foregroundColor="#505050" backgroundColor="#a9a9a9" required="true"
-                                        requiredMessage="Неверное значение X." cursor="true" id="x" onchange="uglyFix()">
+                                        requiredMessage="Неверное значение X." cursor="true" id="x" onchange="uglyFix()" validator="XValidator">
                                 </p:knob>
                                 <p:inputText id="xGraph"
-                                             requiredMessage="Неверное значение Y."
-                                             validator="YValidator"
+                                             requiredMessage="Неверное значение X."
+                                             validator="XValidator"
                                              styleClass="input" maxlength="8" name="xGraph"
                                              type = "hidden"/>
                             </div>
@@ -54,7 +54,7 @@
                                 <h:panelGrid style="text-align: center; margin-top: 32px" cellpadding="5">
                                 <p:selectOneRadio id="r" name="r" value="1" unselectable="true" layout="grid"
                                                   columns="2" style="font-size: 14px; margin-left: 38px"
-                                                  requiredMessage="Неверное значение R." required="true" onchange="drawFigure(this.value);" >
+                                                  requiredMessage="Неверное значение R." required="true" onchange="drawFigure(this.value);" validator="RValidator" >
                                     <f:selectItem itemLabel="1" itemValue="1" />
                                     <f:selectItem itemLabel="1.5" itemValue="1.5" />
                                     <f:selectItem itemLabel="2" itemValue="2" />
@@ -111,10 +111,10 @@
 
                 <p:column headerText="Попал">
                     <h:panelGroup rendered="#{attempts.match}">
-                        <span id="yes">да</span>
+                        <span id="yes" style="color:#008000;">да</span>
                     </h:panelGroup>
                     <h:panelGroup rendered="#{!attempts.match}">
-                        <span id="no">нет</span>
+                        <span id="no" style="color:#B22222;">нет</span>
                     </h:panelGroup>
                 </p:column>
 

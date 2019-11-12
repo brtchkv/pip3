@@ -30,9 +30,4 @@ public class YValidator implements Validator {
             throw new ValidatorException(msg);
         }
     }
-
-    public static void main(String[] args) {
-        String s = "%u041D%u0435%u0432%u0435%u0440%u043D%u0430%u044F%20%u043A%u043E%u043E%u0440%u0434%u0438%u043D%u0430%u0442%u0430%20Y.";
-        System.out.println(s.replace("%","\\"));
-    }
 }

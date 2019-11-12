@@ -25,8 +25,10 @@ public class XValidator implements Validator {
         } catch (Exception e) {
             FacesMessage msg =
                     new FacesMessage("X validation failed.",
-                            "Неверная координата Х.");
+                            "\u041D\u0435\u0432\u0435\u0440\u043D\u0430\u044F \20\u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430\20 X."
+                    );
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            RequestContext.getCurrentInstance().showMessageInDialog(msg);
             throw new ValidatorException(msg);
         }
     }

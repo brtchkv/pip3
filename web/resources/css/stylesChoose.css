@@ -425,10 +425,16 @@ select {
     top: 2.5%;
     height: 25px;
     opacity: 0.75;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .close:hover {
     opacity: 1;
+}
+
+.close:active {
+    background-color: #a9a9a9;
 }
 
 .close:before, .close:after {
