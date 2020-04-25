@@ -90,7 +90,6 @@
 
     <!-- Task test -->
     <target name="test" depends="build">
-
         <mkdir dir="${build.test}"/>
         <javac destdir="${build.test}" srcdir="${src.test}" includeantruntime="false">
             <classpath refid="classpath.test"/>
@@ -98,7 +97,6 @@
         <mkdir dir="${build.test.report}"/>
 
         <junit printsummary="on">
-
             <classpath>
                 <path refid="classpath.test"/>
                 <pathelement location="${build.test}"/>
@@ -106,9 +104,29 @@
 
             <formatter type="plain" usefile="true"/>
             <batchtest todir="${build.test.report}">
-                <fileset dir="${src.test}" includes="*java"/>
+                <fileset dir="${src.test}" includes="*.java"/>
             </batchtest>
         </junit>
+    </target>
+
+    <target name="report" depends="test">
+        <junitreport todir="reports">
+            <fileset dir="reports">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="noframes" todir="./report/html"/>
+        </junitreport>
+        <exec executable="git">
+            <arg value="add"/>
+            <arg value="reports/*"/>
+        </exec>
+        <input message="Please enter commit message:"
+               addproperty="msg"/>
+        <exec executable="git">
+            <arg value="commit"/>
+            <arg value="-m"/>
+            <arg value="${msg}"/>
+        </exec>
     </target>
 
 </project>

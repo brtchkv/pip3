@@ -13,7 +13,7 @@ public class MatchingManagerTest {
 
     @BeforeClass
     public static void globalSetUp() {
-        System.out.println("// todo: write tests hello message");
+        System.out.println("Running some tests");
     }
 
     @Test
@@ -113,6 +113,6 @@ public class MatchingManagerTest {
 
     @AfterClass
     public static void globalTearDown() {
-        System.out.println("// todo: write tests farewell message");
+        System.out.println("Done running tests");
     }
 }
