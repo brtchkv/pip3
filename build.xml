@@ -66,19 +66,19 @@
 
     <!-- Task doc -->
     <target name="doc" depends= "clean">
-        <checksum todir="." format="MD5SUM" totalproperty="md5" forceOverwrite="yes">
+        <checksum todir="checksums" format="MD5SUM" totalproperty="md5" forceOverwrite="yes">
             <fileset dir="${web.content}" />
             <fileset dir="${src.dir}" />
         </checksum>
 
-        <checksum todir="."  algorithm="SHA-512" totalproperty="sha1" forceOverwrite="yes">
+        <checksum todir="checksums"  algorithm="SHA-512" totalproperty="sha1" forceOverwrite="yes">
             <fileset dir="${web.content}" />
             <fileset dir="${src.dir}" />
         </checksum>
 
-        <propertyfile  file="old.build.properties">
-            <entry key="info.md5"  value="${md5}" />
-            <entry key="info.sha1"  value="${sha1}" />
+        <propertyfile  file="build.properties">
+            <entry key="info.md5"  value="${info.md5}" />
+            <entry key="info.sha1"  value="${info.sha1}" />
         </propertyfile>
 
         <mkdir dir="${build.dir.doc}"/>

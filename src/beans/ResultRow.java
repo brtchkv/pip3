@@ -2,6 +2,9 @@ package beans;
 
 import java.io.Serializable;
 
+/**
+ * Method for testing javadoc (ResultRow)
+ */
 public class ResultRow implements Serializable {
     private String x, y, r;
     private Boolean match;

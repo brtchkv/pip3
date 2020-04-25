@@ -1,6 +1,8 @@
 package beans;
 
-
+/**
+ * Method for testing javadoc
+ */
 public final class MatchingManager {
     private static final double[] possibleR = {1.5, 1, 2, 2.5, 3, 3.5};
     private static final double[] possibleX = {-2, -1, 0, 1, 2};

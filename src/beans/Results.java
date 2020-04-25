@@ -14,6 +14,9 @@ import java.util.Vector;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
+/**
+ * ManagedBean ApplicationScoped
+ */
 @ManagedBean(name = "results")
 @ApplicationScoped
 public class Results {
