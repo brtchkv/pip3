@@ -131,11 +131,11 @@
             <fileset dir="reports">
                 <include name="TEST-*.xml"/>
             </fileset>
-            <report format="noframes" todir="./report/html"/>
+            <report format="noframes" todir="${build.test.report}/test-report/html"/>
         </junitreport>
         <exec executable="git">
             <arg value="add"/>
-            <arg value="reports/*"/>
+            <arg value="${build.test.report}/test-report/html/*"/>
         </exec>
         <input message="Please enter commit message:"
                addproperty="msg"/>
