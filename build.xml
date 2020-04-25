@@ -6,6 +6,10 @@
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="*.jar" />
         <fileset dir="${src.dir}" includes="*.java" />
+        <pathelement location="${lib.javax}" />
+        <pathelement location="${lib.prime}" />
+        <pathelement location="${lib.primeSources}" />
+
     </path>
 
     <path id="classpath.test">
@@ -65,7 +69,8 @@
     </target>
 
     <!-- Task doc -->
-    <target name="doc" depends= "clean">
+    <target name="doc" depends="clean">
+        <delete dir="${build.dir.doc}"/>
         <checksum todir="checksums" format="MD5SUM" totalproperty="md5" forceOverwrite="yes">
             <fileset dir="${web.content}" />
             <fileset dir="${src.dir}" />
@@ -82,7 +87,13 @@
         </propertyfile>
 
         <mkdir dir="${build.dir.doc}"/>
-        <javadoc destdir="${build.dir.doc}" classpathref="classpath">
+
+        <javadoc sourcepath="${src.dir}"
+                 destdir="${build.dir.doc}"
+                 classpath="${src.dir}"
+                 author="true"
+                 version="true"
+                 use="true">
             <fileset dir="${src.dir.doc}" includes="*/*.java"/>
             <fileset dir="${src.dir.doc}" includes="*.java"/>
         </javadoc>
