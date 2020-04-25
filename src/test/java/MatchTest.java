@@ -186,19 +186,35 @@ public class MatchTest {
 
     @Test
     public void fourthSectionOnCenterBrinkTest() {
-        // FIXME: увеличить точность MatchingManager
-        assertTrue(MatchingManager.match(Math.sqrt(0.5), -1 * Math.sqrt(0.5), r));
+        assertTrue(
+                MatchingManager.match(
+                        Math.sqrt(Math.pow(3.5 / 2, 2) / 2),
+                        -1 * Math.sqrt(Math.pow(3.5 / 2, 2) / 2),
+                        3.5
+                )
+        );
     }
 
     @Test
     public void fourthSectionNearCenterInTest() {
-        // FIXME: увеличить точность MatchingManager
-        assertTrue(MatchingManager.match(Math.sqrt(0.5) - 0.001, -1 * Math.sqrt(0.5) - 0.001, r));
+        assertTrue(
+                MatchingManager.match(
+                        Math.sqrt(Math.pow(3.5 / 2, 2) / 2) - 0.001,
+                        -1 * Math.sqrt(Math.pow(3.5 / 2, 2) / 2) + 0.001,
+                        3.5
+                )
+        );
     }
 
     @Test
     public void fourthSectionNearCenterOutTest() {
-        assertFalse(MatchingManager.match(Math.sqrt(0.5) + 0.001, -1 * Math.sqrt(0.5) + 0.001, r));
+        assertFalse(
+                MatchingManager.match(
+                        Math.sqrt(Math.pow(3.5 / 2, 2) / 2) + 0.001,
+                        -1 * Math.sqrt(Math.pow(3.5 / 2, 2) / 2) - 0.001,
+                        3.5
+                )
+        );
     }
 
     @Test
