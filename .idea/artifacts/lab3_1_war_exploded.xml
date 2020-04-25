@@ -13,6 +13,7 @@
           <element id="library" level="project" name="postgresql-42.2.5" />
           <element id="library" level="application" name="javax.faces-2.4.0" />
           <element id="library" level="application" name="primefaces-6.1" />
+          <element id="library" level="module" name="JUnit4" module-name="lab3.1" />
         </element>
       </element>
     </root>

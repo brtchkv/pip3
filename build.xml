@@ -90,13 +90,15 @@
 
     <!-- Task test -->
     <target name="test" depends="build">
+
         <mkdir dir="${build.test}"/>
         <javac destdir="${build.test}" srcdir="${src.test}" includeantruntime="false">
             <classpath refid="classpath.test"/>
         </javac>
         <mkdir dir="${build.test.report}"/>
 
-        <junit printsummary="on">
+        <junit printsummary="on" haltonerror="true" haltonfailure="true" >
+
             <classpath>
                 <path refid="classpath.test"/>
                 <pathelement location="${build.test}"/>
@@ -104,7 +106,7 @@
 
             <formatter type="plain" usefile="true"/>
             <batchtest todir="${build.test.report}">
-                <fileset dir="${src.test}" includes="*.java"/>
+                <fileset dir="${src.test}" includes="*java"/>
             </batchtest>
         </junit>
     </target>
