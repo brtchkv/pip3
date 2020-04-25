@@ -70,7 +70,6 @@
 
     <!-- Task doc -->
     <target name="doc" depends="clean">
-        <delete dir="${build.dir.doc}"/>
         <checksum todir="checksums" format="MD5SUM" totalproperty="md5" forceOverwrite="yes">
             <fileset dir="${web.content}" />
             <fileset dir="${src.dir}" />
@@ -85,6 +84,11 @@
             <entry key="info.md5"  value="${info.md5}" />
             <entry key="info.sha1"  value="${info.sha1}" />
         </propertyfile>
+
+        <manifest file="src/main/resources/META-INF/MANIFEST.MF">
+            <attribute name="SHA1-Digest" value="${info.sha1}"/>
+            <attribute name="MD5-Digest" value="${info.md5}"/>
+        </manifest>
 
         <mkdir dir="${build.dir.doc}"/>
 
