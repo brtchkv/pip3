@@ -1,6 +1,6 @@
-package beans;
+package main.java.beans;
 
-import database.JDBCManager;
+import main.java.database.JDBCManager;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Vector;
-import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
 /**
