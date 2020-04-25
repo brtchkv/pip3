@@ -1,6 +1,6 @@
-package tests;
+package test.java;
 
-import beans.MatchingManager;
+import main.java.beans.MatchingManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package beans;
+package main.java.beans;
 
 /**
  * Method for testing javadoc

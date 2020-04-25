@@ -22,13 +22,13 @@
 
     <managed-bean>
         <managed-bean-name>results</managed-bean-name>
-        <managed-bean-class>beans.Results</managed-bean-class>
+        <managed-bean-class>main.java.beans.Results</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <managed-bean-name>ResultRow</managed-bean-name>
-        <managed-bean-class>beans.ResultRow</managed-bean-class>
+        <managed-bean-class>main.java.beans.ResultRow</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 

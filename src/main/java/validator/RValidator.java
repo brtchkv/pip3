@@ -1,6 +1,5 @@
-package validator;
+package main.java.validator;
 
-import com.sun.corba.se.spi.ior.ObjectKey;
 import org.primefaces.context.RequestContext;
 
 import javax.faces.application.FacesMessage;
@@ -10,22 +9,19 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("XValidator")
-public class XValidator implements Validator {
-    private static final double minX = -2;
-    private static final double maxX = 2;
+@FacesValidator("RValidator")
+public class RValidator implements Validator {
+    private static final double[] possibleR = {1.5, 1, 2, 2.5, 3};
 
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object o) throws ValidatorException {
         try {
-
-            double x = Double.parseDouble(o.toString().replace(',', '.'));
-            if (!(x >= minX && x <= maxX))
+            double r = Double.parseDouble(o.toString().replace(',', '.'));
+            if (!matchR(r))
                 throw new IllegalArgumentException();
-
         } catch (Exception e) {
             FacesMessage msg =
-                    new FacesMessage("X validation failed.",
-                            "\u041D\u0435\u0432\u0435\u0440\u043D\u0430\u044F \20\u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442\u0430\20 X."
+                    new FacesMessage("R validation failed.",
+                            "\u041D\u0435\u0432\u0435\u0440\u043D\u0430\u044F \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 R."
                     );
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             RequestContext.getCurrentInstance().showMessageInDialog(msg);
@@ -33,4 +29,10 @@ public class XValidator implements Validator {
         }
     }
 
+    private static boolean matchR(double r) {
+        for (double aPossibleR : possibleR)
+            if (r == aPossibleR)
+                return true;
+        return false;
+    }
 }

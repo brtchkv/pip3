@@ -4,7 +4,7 @@
     <root id="archive" name="lab3.1_war.war">
       <element id="artifact" artifact-name="lab3.1:war exploded" />
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
       </element>
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
