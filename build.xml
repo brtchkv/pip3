@@ -1,0 +1,114 @@
+<project name="ThirdLab" default="build" basedir="." >
+
+    <!-- File Properties-->
+    <property file="build.properties"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar" />
+        <fileset dir="${src.dir}" includes="*.java" />
+    </path>
+
+    <path id="classpath.test">
+        <pathelement location="${lib.junit}" />
+        <pathelement location="${lib.hamcrest}" />
+        <pathelement location="${build.dir}/WEB-INF/classes"/>
+    </path>
+
+    <!-- Task clean -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="WEB-INF"/>
+        <delete dir="main"/>
+        <delete dir="resources"/>
+        <delete dir="test"/>
+        <delete dir="src/WEB-INF"/>
+        <delete dir="src/resources"/>
+
+        <delete>
+            <fileset dir="." includes="*.MD5"/>
+            <fileset dir="." includes="*.SHA-512"/>
+            <fileset dir="${src.dir}" includes="*.MD5"/>
+            <fileset dir="${src.dir}" includes="*.SHA-512"/>
+            <fileset dir="${web.content}" includes="*.MD5"/>
+            <fileset dir="${web.content}" includes="*.SHA-512"/>
+        </delete>
+    </target>
+
+    <!-- Task compile -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir.classes}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir.classes}" classpathref="classpath"/>
+    </target>
+
+    <!-- Task build -->
+    <target name="build" depends="compile">
+        <copy todir="${build.dir.meta-inf}">
+            <fileset dir="${src.res}"/>
+        </copy>
+
+        <copy todir="${build.dir}">
+            <fileset dir="${web.content}"/>
+        </copy>
+
+        <copy todir="${build.dir.lib}">
+            <fileset dir="${lib.dir}"/>
+        </copy>
+
+        <war destfile="${dist.dir}/${project.name}.war" webxml="${build.web-xml}">
+            <fileset dir="${build.dir}"/>
+            <manifest>
+                <attribute name="Specification-Version" value="${info.version}"/>
+                <attribute name="MD5" value="${info.md5}" />
+                <attribute name="SHA-1" value="${info.sha1}"/>
+            </manifest>
+        </war>
+    </target>
+
+    <!-- Task doc -->
+    <target name="doc" depends= "clean">
+        <checksum todir="." format="MD5SUM" totalproperty="md5" forceOverwrite="yes">
+            <fileset dir="${web.content}" />
+            <fileset dir="${src.dir}" />
+        </checksum>
+
+        <checksum todir="."  algorithm="SHA-512" totalproperty="sha1" forceOverwrite="yes">
+            <fileset dir="${web.content}" />
+            <fileset dir="${src.dir}" />
+        </checksum>
+
+        <propertyfile  file="old.build.properties">
+            <entry key="info.md5"  value="${md5}" />
+            <entry key="info.sha1"  value="${sha1}" />
+        </propertyfile>
+
+        <mkdir dir="${build.dir.doc}"/>
+        <javadoc destdir="${build.dir.doc}" classpathref="classpath">
+            <fileset dir="${src.dir.doc}" includes="*/*.java"/>
+            <fileset dir="${src.dir.doc}" includes="*.java"/>
+        </javadoc>
+    </target>
+
+    <!-- Task test -->
+    <target name="test" depends="build">
+
+        <mkdir dir="${build.test}"/>
+        <javac destdir="${build.test}" srcdir="${src.test}" includeantruntime="false">
+            <classpath refid="classpath.test"/>
+        </javac>
+        <mkdir dir="${build.test.report}"/>
+
+        <junit printsummary="on">
+
+            <classpath>
+                <path refid="classpath.test"/>
+                <pathelement location="${build.test}"/>
+            </classpath>
+
+            <formatter type="plain" usefile="true"/>
+            <batchtest todir="${build.test.report}">
+                <fileset dir="${src.test}" includes="*java"/>
+            </batchtest>
+        </junit>
+    </target>
+
+</project>

@@ -21,7 +21,7 @@ public class Results {
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USER = "ivan";
     private static final String PASS = "ivan";
-//    private static final String DB_URL = "jdbc:postgresql://pg:5432/studs";
+    //    private static final String DB_URL = "jdbc:postgresql://pg:5432/studs";
 //    private static final String USER = "s263916";
 //    private static final String PASS = "";
     private static final String TABLE_NAME = "results";

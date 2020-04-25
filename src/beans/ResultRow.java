@@ -2,8 +2,8 @@ package beans;
 
 import java.io.Serializable;
 
-public class ResultRow  implements Serializable {
-    private String x,y,r;
+public class ResultRow implements Serializable {
+    private String x, y, r;
     private Boolean match;
 
     public String getX() {
