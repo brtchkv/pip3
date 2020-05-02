@@ -135,7 +135,7 @@
         </junitreport>
         <exec executable="git">
             <arg value="add"/>
-            <arg value="${build.test.report}/test-report/html/*"/>
+            <arg value="-A"/>
         </exec>
         <input message="Please enter commit message:"
                addproperty="msg"/>

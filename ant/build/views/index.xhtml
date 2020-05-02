@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title>Лаба 3</title>
+    <h:outputStylesheet name="stylesMain.css" library="css"/>
+    <h:outputStylesheet name="stylesResponse.css" library="css"/>
+    <h:outputScript name="jquery-3.3.1.js" library="js"/>
+    <h:outputScript name="clock.js" library="js"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet"
+          type="text/css"/>
+</h:head>
+
+<h:body>
+    <header>
+        Иван Братчиков<br/>
+        Вариант № 20114<br/>
+        P3201<br/>
+    </header>
+    <br/>
+    <div align="center" draggable="false" style="margin-top: 10%;">
+        <article class="mainRect animated zoomIn fast">
+            <div align="center" draggable="false">
+                <canvas id="clock" title="clock" width="300px" height="300px" style="padding-top: 25px"/>
+            </div>
+            <br/>
+            <h:form>
+                <div align="center" draggable="false">
+                    <h:commandButton action="check" id="check-button" value="Дальше"
+                                     ajax="false" styleClass="buttonCheck" style="text-align: center"/>
+                </div>
+            </h:form>
+        </article>
+    </div>
+</h:body>
+</html>

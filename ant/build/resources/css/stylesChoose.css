@@ -1,0 +1,457 @@
+button, input:focus {
+    outline: 0;
+}
+
+header {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px 10px 10px 21px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.75);
+}
+
+footer {
+    position: absolute;
+    padding: 10px 10px 10px 21px;
+    bottom: 0px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.75);
+}
+
+body .ui-radiobutton-box.ui-state-active,
+body .ui-radiobutton-box.ui-state-focus.ui-state-active {
+    background-color: transparent;
+    color: #156090;
+}
+
+body .ui-radiobutton .ui-icon-bullet,
+body .ui-radiobutton .ui-icon-blank {
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.background {
+    /*margin: -10%;*/
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #FFB74B, #c34a36, #5566DF);
+    background-size: 400% 400%;
+    overflow: hidden;
+}
+
+
+/* Rectangle */
+.mainRect {
+    position: fixed;
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    margin-left: -563px;
+    margin-top: -257px;
+    /*position: relative;*/
+    width: 1125px;
+    height: 517px;
+    mix-blend-mode: hard-light;
+    border-radius: 20px;
+    background-color: rgba(205, 205, 205, 0.85);
+}
+
+.inputFields {
+    position: relative;
+    padding: 40px 80px 30px 80px;
+    height: 385px;
+    width: 695px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.taskRect {
+    position: absolute;
+    width: 389px;
+    height: 60px;
+    /*mix-blend-mode: soft-light;*/
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+}
+
+
+/* Введите данные на проверку вхождения в область значений данного графика: */
+.task {
+    padding: 14px 20px;
+    position: absolute;
+    width: 550px;
+    height: 40px;
+    font-family: Roboto sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.75);
+
+}
+
+/* Rectangle 4 */
+.xRect {
+    position: absolute;
+    width: 280px;
+    height: 170px;
+    margin-top: 15.5%;
+    /*mix-blend-mode: soft-light;*/
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* X: */
+.xLetter {
+    position: absolute;
+    padding: 14px 20px;
+    margin-left: 115px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+#tableButton {
+    margin: 35px 28px 10px;
+    height: 90px;
+}
+
+.buttonSingle {
+    width: 60px;
+    height: 20px;
+    font-size: 13px;
+    border-radius: 10px !important;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.buttonNumber {
+    width: 60px;
+    height: 20px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.buttonNumber:disabled {
+    background-color: #a9a9a9;
+    border-radius: 6px;
+}
+
+.buttonNumber:active {
+    background-color: #a9a9a9;
+    border-radius: 6px;
+}
+
+.buttonNumber.selected {
+    background-color: rgba(185, 185, 185, 0.85);
+    border-radius: 6px;
+    /*color: rgba(255, 255, 255, 0.85);*/
+}
+
+/* Rectangle 3 */
+.rRect {
+    position: absolute;
+    margin-top: 15.5%;
+    margin-left: 45.7%;
+    width: 200px;
+    height: 170px;
+    /*mix-blend-mode: soft-light;*/
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+}
+
+
+/* R: */
+.rParameter {
+    position: absolute;
+    width: 178px;
+    height: 15px;
+    padding: 14px 12px;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+/* Rectangle 5 */
+.yRect {
+    position: absolute;
+    width: 590px;
+    height: 70px;
+    margin-top: 42%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+}
+
+/* Y: */
+.yLetter {
+    position: absolute;
+    padding-top: 4.5%;
+    padding-left: 6%;
+
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.yRect > input {
+    font-size: 14px;
+    position: relative;
+    border-radius: 4px;
+    width: 80%;
+    height: 40%;
+    left: 13%;
+    top: 22%;
+    /*mix-blend-mode: luminosity;*/
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+
+}
+
+input[type="text"]::placeholder {
+    /* Firefox, Chrome, Opera */
+    text-align: center;
+}
+
+
+/* Rectangle */
+.imageRect {
+
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-left: 76%;
+    padding: 10px 10px 10px 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    border-radius: 15px;
+}
+
+
+/* image 2 */
+.image {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    margin-left: 0;
+    border-radius: 36px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* Rectangle 7 */
+.buttonCheck {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    text-align: center;
+    bottom: 0;
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+
+.buttonCheck:active {
+    background-color: #a9a9a9;
+}
+
+/* Проверить */
+.buttonLetter {
+
+    font-family: Roboto Serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 80% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+
+select {
+    margin-left: 23.5%;
+    font-size: 13px;
+    margin-top: 63.8%;
+    width: 60px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    background-position: right .7em top 50%, 0 0;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .3em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    mix-blend-mode: luminosity;
+    text-align: center;
+}
+
+.historyButton {
+    position: absolute;
+    left: 95%;
+    top: 90%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+}
+
+.historyButton svg:hover {
+    fill-opacity: .9;
+}
+
+.historyButton svg {
+    width: 30px;
+    height: 30px;
+    fill-opacity: 0.35;
+}
+
+.hide {
+    display: none;
+}
+
+#dataTable, .table,
+#tableBody > td {
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 325px;
+    width: auto;
+    margin-top: 5%;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(215, 215, 215);
+    background-blend-mode: hard-light;
+}
+
+.close {
+    position: absolute;
+    right: 1.5%;
+    top: 2.5%;
+    height: 25px;
+    opacity: 0.75;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:active {
+    background-color: #a9a9a9;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+

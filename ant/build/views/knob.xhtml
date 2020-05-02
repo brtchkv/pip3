@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsf/core"
+      xmlns:a="http://java.sun.com/jsf/composite">
+<h:head>
+    <title>Knobs</title>
+    <h:outputStylesheet name="stylesChoose.css" library="css"/>
+    <!--    <h:outputStylesheet name="stylesChoose.css" library="css"/>-->
+</h:head>
+<h:body>
+    <h:form>
+        <div class="background">
+            <div class="mainRect">
+                <p:dataTable var="attempts"
+                             styleClass="" id="dataTable"
+                             scrollable="true" scrollHeight="150"
+                             emptyMessage="Данных нет"
+                             style="text-align: center; width: 80%; height: 80%; margin-left: 9.5%; margin-top: 4%;"
+                             tableStyle="text-align: center" value="#{results.allResults}">
+                    <p:column headerText="X">
+                        <h:outputText value="#{attempts.x}"/>
+                    </p:column>
+
+                    <p:column headerText="Y">
+                        <h:outputText value="#{attempts.y}"/>
+                    </p:column>
+
+                    <p:column headerText="R">
+                        <h:outputText value="#{attempts.r}"/>
+                    </p:column>
+
+                    <p:column headerText="Match">
+                        <h:outputText value="#{attempts.match}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>
