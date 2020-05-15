@@ -1,4 +1,4 @@
-package main.java.beans;
+package beans;
 
 import main.java.database.JDBCManager;
 
@@ -75,7 +75,7 @@ public class Results {
     }
 
     public Vector<ResultRow> getAllResults() {
-        Vector<ResultRow> resultRows = new Vector<>();
+        Vector<ResultRow> resultRows = new Vector<ResultRow>();
         try {
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM " + TABLE_NAME + ";");
             while (resultSet.next()) {

@@ -1,27 +1,27 @@
 Testsuite: MatchTest
-Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec
+Tests run: 81, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.507 sec
 ------------- Standard Output ---------------
 Running some tests
 Done running tests
 ------------- ---------------- ---------------
 
-Testcase: firstSectionInTest took 0.006 sec
+Testcase: firstSectionInTest took 0.014 sec
 Testcase: firstSectionOutTest took 0 sec
 Testcase: firstSectionOnCenterBrinkTest took 0 sec
 Testcase: firstSectionNearCenterInTest took 0 sec
-Testcase: firstSectionNearCenterOutTest took 0.001 sec
+Testcase: firstSectionNearCenterOutTest took 0 sec
 Testcase: firstSectionOnTopBrinkTest took 0 sec
 Testcase: firstSectionNearTopInTest took 0 sec
-Testcase: firstSectionNearTopOutTest took 0 sec
+Testcase: firstSectionNearTopOutTest took 0.001 sec
 Testcase: firstSectionOnRightBrinkTest took 0 sec
 Testcase: firstSectionNearRightInTest took 0 sec
 Testcase: firstSectionNearRightOutTest took 0 sec
-Testcase: secondSectionInTest took 0 sec
+Testcase: secondSectionInTest took 0.003 sec
 Testcase: secondSectionOutTest took 0 sec
-Testcase: secondSectionOnCenterBrinkTest took 0 sec
+Testcase: secondSectionOnCenterBrinkTest took 0.001 sec
 Testcase: secondSectionNearCenterInTest took 0 sec
-Testcase: secondSectionNearCenterOutTest took 0 sec
-Testcase: secondSectionOnTopRightBrinkTest took 0 sec
+Testcase: secondSectionNearCenterOutTest took 0.001 sec
+Testcase: secondSectionOnTopRightBrinkTest took 0.001 sec
 Testcase: secondSectionNearTopRightInTest took 0 sec
 Testcase: secondSectionNearTopRightOutTest took 0 sec
 Testcase: secondSectionOnTopLeftBrinkTest took 0 sec
@@ -38,17 +38,17 @@ Testcase: fourthSectionInTest took 0 sec
 Testcase: fourthSectionOutTest took 0 sec
 Testcase: fourthSectionOnDownBrinkTest took 0 sec
 Testcase: fourthSectionNearDownInTest took 0 sec
-Testcase: fourthSectionNearDownOutTest took 0 sec
-Testcase: fourthSectionOnCenterBrinkTest took 0 sec
+Testcase: fourthSectionNearDownOutTest took 0.002 sec
+Testcase: fourthSectionOnCenterBrinkTest took 0.001 sec
 Testcase: fourthSectionNearCenterInTest took 0 sec
-Testcase: fourthSectionNearCenterOutTest took 0 sec
+Testcase: fourthSectionNearCenterOutTest took 0.001 sec
 Testcase: fourthSectionOnRightBrinkTest took 0 sec
 Testcase: fourthSectionNearRightInTest took 0 sec
 Testcase: fourthSectionNearRightOutTest took 0 sec
 Testcase: goodCoordinatesValidationTest took 0 sec
 Testcase: wrongCoordinatesValidationTest took 0 sec
-Testcase: r15ValidationTest took 0.001 sec
-Testcase: lessR15ValidationTest took 0 sec
+Testcase: r15ValidationTest took 0 sec
+Testcase: lessR15ValidationTest took 0.004 sec
 Testcase: largerR15ValidationTest took 0 sec
 Testcase: r2ValidationTest took 0 sec
 Testcase: lessR2ValidationTest took 0 sec
@@ -58,14 +58,14 @@ Testcase: lessR1ValidationTest took 0 sec
 Testcase: largerR1ValidationTest took 0 sec
 Testcase: r25ValidationTest took 0 sec
 Testcase: lessR25ValidationTest took 0 sec
-Testcase: largerR25ValidationTest took 0 sec
+Testcase: largerR25ValidationTest took 0.002 sec
 Testcase: r3ValidationTest took 0 sec
-Testcase: lessR3ValidationTest took 0 sec
-Testcase: largerR3ValidationTest took 0 sec
+Testcase: lessR3ValidationTest took 0.016 sec
+Testcase: largerR3ValidationTest took 0.002 sec
 Testcase: r35ValidationTest took 0 sec
 Testcase: lessR35ValidationTest took 0 sec
 Testcase: largerR35ValidationTest took 0 sec
-Testcase: maxYValidationTest took 0 sec
+Testcase: maxYValidationTest took 0.001 sec
 Testcase: lessMaxYValidationTest took 0 sec
 Testcase: largerMaxYValidationTest took 0 sec
 Testcase: minYValidationTest took 0 sec
@@ -74,15 +74,15 @@ Testcase: largerMinYValidationTest took 0 sec
 Testcase: xMinus2ValidationTest took 0 sec
 Testcase: lessXMinus2ValidationTest took 0 sec
 Testcase: largerXMinus2ValidationTest took 0 sec
-Testcase: xMinus1ValidationTest took 0.001 sec
+Testcase: xMinus1ValidationTest took 0 sec
 Testcase: lessXMinus1ValidationTest took 0 sec
-Testcase: largerXMinus1ValidationTest took 0 sec
-Testcase: xZeroValidationTest took 0 sec
+Testcase: largerXMinus1ValidationTest took 0.001 sec
+Testcase: xZeroValidationTest took 0.001 sec
 Testcase: lessXZeroValidationTest took 0 sec
 Testcase: largerXZeroValidationTest took 0 sec
 Testcase: x1ValidationTest took 0 sec
-Testcase: lessX1ValidationTest took 0 sec
-Testcase: largerX1ValidationTest took 0 sec
+Testcase: lessX1ValidationTest took 0.001 sec
+Testcase: largerX1ValidationTest took 0.001 sec
 Testcase: x2ValidationTest took 0 sec
 Testcase: lessX2ValidationTest took 0 sec
-Testcase: largerX2ValidationTest took 0 sec
+Testcase: largerX2ValidationTest took 0.005 sec
